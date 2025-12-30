@@ -1,19 +1,30 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [hasAnimated, setHasAnimated] = useState(false)
 
   useEffect(() => {
+    // Delay animation enablement to avoid flicker
+    const timer = setTimeout(() => setHasAnimated(true), 100)
+    
+    // Check initial scroll position
+    const currentScrollY = window.scrollY
+    setIsScrolled(currentScrollY > 50)
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY
       setIsScrolled(currentScrollY > 50)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      clearTimeout(timer)
+    }
   }, [])
 
   return (
@@ -27,22 +38,25 @@ export default function Navbar() {
         className="fixed z-50 w-full px-2 pointer-events-auto"
         initial={{ y: 0, opacity: 1 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{
-          type: "spring",
-          stiffness: 300,
-          damping: 30
-        }}
       >
       <motion.nav
         className="mx-auto mt-2 backdrop-blur-xl"
-        animate={{
-          backgroundColor: isScrolled ? 'rgba(15, 16, 21, 0.9)' : 'rgba(15, 16, 21, 0)',
+        initial={{
+          backgroundColor: 'rgba(15, 16, 21, 0.3)',
+          maxWidth: '80rem',
+          borderRadius: '0px',
+          border: '1px solid rgba(255, 255, 255, 0)',
+          paddingLeft: '48px',
+          paddingRight: '48px',
+        }}
+        animate={hasAnimated ? {
+          backgroundColor: isScrolled ? 'rgba(15, 16, 21, 0.7)' : 'rgba(15, 16, 21, 0.3)',
           maxWidth: isScrolled ? '64rem' : '80rem',
           borderRadius: isScrolled ? '16px' : '0px',
           border: isScrolled ? '1px solid rgba(255, 255, 255, 0.05)' : '1px solid rgba(255, 255, 255, 0)',
           paddingLeft: isScrolled ? '24px' : '48px',
           paddingRight: isScrolled ? '24px' : '48px',
-        }}
+        } : undefined}
         transition={{
           type: "spring",
           stiffness: 200,
@@ -52,10 +66,14 @@ export default function Navbar() {
       >
         <motion.div
           className="flex items-center justify-between"
-          animate={{
+          initial={{
+            paddingTop: '16px',
+            paddingBottom: '16px',
+          }}
+          animate={hasAnimated ? {
             paddingTop: isScrolled ? '12px' : '16px',
             paddingBottom: isScrolled ? '12px' : '16px',
-          }}
+          } : undefined}
           transition={{
             type: "spring",
             stiffness: 200,

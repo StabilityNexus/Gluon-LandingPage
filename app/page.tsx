@@ -1,11 +1,13 @@
 import Navbar from './components/Navbar'
+import ScrollExpandMedia from './components/ScrollExpandMedia'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0F1015]">
-      <Navbar />
+    <>
+      <div className="min-h-screen bg-[#0F1015]">
+        <Navbar />
 
-      {/* Hero Section */}
+        {/* Hero Section */}
       <section className="relative overflow-hidden px-6 pt-32 pb-24 sm:px-8 lg:px-16">
         {/* Subtle background glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl"></div>
@@ -141,6 +143,49 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Whitepaper Section */}
+      <ScrollExpandMedia
+        mediaType="image"
+        mediaSrc="/whitepaper.png"
+        title="GLUON W"
+        date="Cryptocurrency Stabilization Protocol"
+        scrollToExpand="Scroll to Explore"
+      >
+        <div className="space-y-8">
+          <div className="text-center space-y-2">
+            <div className="inline-block">
+              <span className="text-sm tracking-[0.3em] text-black/60 font-semibold uppercase">IACR ePrint 2025/1372</span>
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-black/90 tracking-wide">
+              Research Whitepaper
+            </h3>
+          </div>
+          
+          <div className="max-w-md mx-auto">
+            <p className="text-base text-black/70 leading-relaxed text-center font-medium">
+              A peer-reviewed approach to cryptocurrency stabilization through dual-token mechanics and reflexive settlement architecture.
+            </p>
+          </div>
+
+          <div className="pt-8 flex flex-col items-center gap-3">
+            <a
+              href="https://gluon.stability.nexus/whitepaper.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-2.5 px-6 py-3 bg-black/80 hover:bg-black border border-black text-white text-sm font-medium rounded-lg transition-all duration-500 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-amber-500/0 via-amber-500/20 to-amber-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+              <svg className="w-4 h-4 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span className="relative z-10">Read Full Paper</span>
+              <span className="relative z-10 text-[10px] text-amber-400/80">PDF</span>
+            </a>
+            <p className="text-[10px] text-gray-600 font-light tracking-wide">2.4 MB · 2025</p>
+          </div>
+        </div>
+      </ScrollExpandMedia>
 
       {/* Why Gluon Section */}
       <section className="px-6 py-20 sm:px-8 lg:px-16 border-t border-white/5">
@@ -303,6 +348,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </div>
+      </div>
+    </>
   );
 }
