@@ -1,8 +1,49 @@
+'use client'
+
+import { useRef } from 'react'
 import Navbar from './components/Navbar'
 import ScrollExpandMedia from './components/ScrollExpandMedia'
-import { HoverBorderGradient } from './ui/hover-border-gradient'
+import { FocusRail, type FocusRailItem } from './ui/focus-rail'
+import { motion } from 'framer-motion'
+
+const HOW_IT_WORKS_RAIL_ITEMS: FocusRailItem[] = [
+  {
+    id: 'fission',
+    title: 'Fission',
+    meta: 'Base → Neutron + Proton',
+    description: 'Split base tokens into neutrons and protons, unlocking the dual-token structure and flexible DeFi strategies.',
+    inputTokens: ['base'] as const,
+    outputTokens: ['neutron', 'proton'] as const,
+  },
+  {
+    id: 'fusion',
+    title: 'Fusion',
+    meta: 'Neutron + Proton → Base',
+    description: 'Merge neutrons and protons back into base tokens, restoring the original asset with precision and efficiency.',
+    inputTokens: ['neutron', 'proton'] as const,
+    outputTokens: ['base'] as const,
+  },
+  {
+    id: 'beta-plus',
+    title: 'Beta Decay β+',
+    meta: 'Proton → Neutron',
+    description: 'Convert protons into neutrons; fees adjust dynamically from reserve balance, optimizing protocol economics.',
+    inputTokens: ['proton'] as const,
+    outputTokens: ['neutron'] as const,
+  },
+  {
+    id: 'beta-minus',
+    title: 'Beta Decay β−',
+    meta: 'Neutron → Proton',
+    description: 'Transform neutrons into protons, adjusting your position in the dual-token system seamlessly.',
+    inputTokens: ['neutron'] as const,
+    outputTokens: ['proton'] as const,
+  },
+]
 
 export default function Home() {
+  const howItWorksSectionRef = useRef<HTMLDivElement>(null)
+
   return (
     <>
       <div className="min-h-screen bg-[#0F1015]">
@@ -56,105 +97,112 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section id="how-it-works" className="px-6 py-24 sm:px-8 lg:px-16 border-t border-white/5">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-3xl sm:text-4xl font-bold text-amber-100 mb-8">
-            How Gluon Works
-          </h2>
+      {/* How It Works Section - Sticky Scroll Container */}
+      <div 
+        ref={howItWorksSectionRef}
+        className="relative"
+        style={{ height: `${100 * HOW_IT_WORKS_RAIL_ITEMS.length}vh` }}
+      >
+        <section 
+          id="how-it-works" 
+          className="sticky top-0 px-6 py-24 sm:px-8 lg:px-16 border-t border-white/5 min-h-screen flex items-center"
+        >
+          {/* Subtle background accent */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[100px] pointer-events-none"></div>
           
-          <div className="space-y-6 text-gray-400 leading-relaxed text-sm mb-12">
-            <p>
-              The essence of Gluon W is that, analogously to how an atom&apos;s nucleus is composed of protons and neutrons (known collectively as nucleons), a base token is composed of two sub-assets: <span className="text-amber-300 font-medium">neutrons </span> or stable tokeons, whose price is kept stable relative to a target price; and <span className="text-amber-300 font-medium">protons </span> or volatile tokeons, whose price is more volatile than the base token.
-            </p>
-            <p>
-              The protocol defines the rules of an autonomous reactor capable of four reactions:
-            </p>
-          </div>
-
-          {/* Four Reactions */}
-          <div className="space-y-8">
-            {/* Fission */}
-            <div className="bg-white/[0.02] p-8 rounded-xl border border-white/5 hover:border-amber-500/20 transition-colors">
-              <div className="flex items-start gap-4">
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-amber-100 mb-3">1. Fission</h3>
-                  <p className="text-gray-400 text-sm mb-4">
-                    The user sends base tokens to the reactor and receives neutrons and protons.
-                  </p>
-                  <div className="flex items-center gap-3 text-xs">
-                    <span className="px-3 py-1 bg-amber-500/10 text-amber-300 rounded-full">Input: Base Token</span>
-                    <span className="text-gray-500">→</span>
-                    <span className="px-3 py-1 bg-green-500/10 text-green-300 rounded-full">Output: Neutrons + Protons</span>
-                  </div>
-                </div>
+          <div className="relative mx-auto max-w-7xl w-full">
+            {/* Header Badge */}
+            <motion.div 
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-block">
+                <span className="px-4 py-2 text-sm font-semibold text-amber-400 border border-amber-500/30 rounded-full bg-amber-500/10 backdrop-blur-sm">
+                  How It Works
+                </span>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Fusion */}
-            <div className="bg-white/[0.02] p-8 rounded-xl border border-white/5 hover:border-amber-500/20 transition-colors">
-              <div className="flex items-start gap-4">
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-amber-100 mb-3">2. Fusion</h3>
-                  <p className="text-gray-400 text-sm mb-4">
-                    The user sends neutrons and protons to the reactor and receives base tokens.
+            {/* Side-by-side Layout: Text Left, FocusRail Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Left Side - Text Content */}
+              <motion.div 
+                className="space-y-6"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="text-4xl sm:text-5xl font-bold text-amber-100">
+                  Dual Token Mechanics
+                </h2>
+                <div className="space-y-4 text-gray-400 leading-relaxed">
+                  <p className="text-base">
+                    The essence of Gluon W is that, analogously to how an atom&apos;s nucleus is composed of protons and neutrons (known collectively as nucleons), a base token is composed of two sub-assets: <span className="text-amber-300 font-medium">neutrons</span> or stable tokens, whose price is kept stable relative to a target price; and <span className="text-purple-300 font-medium">protons</span> or volatile tokens, whose price is more volatile than the base token.
                   </p>
-                  <div className="flex items-center gap-3 text-xs">
-                    <span className="px-3 py-1 bg-green-500/10 text-green-300 rounded-full">Input: Neutrons + Protons</span>
-                    <span className="text-gray-500">→</span>
-                    <span className="px-3 py-1 bg-amber-500/10 text-amber-300 rounded-full">Output: Base Token</span>
-                  </div>
+                  <p className="text-base text-gray-500">
+                    The protocol defines the rules of an autonomous reactor capable of four reactions:
+                  </p>
                 </div>
-              </div>
-            </div>
+              </motion.div>
 
-            {/* Beta Decay β+ */}
-            <div className="bg-white/[0.02] p-8 rounded-xl border border-white/5 hover:border-amber-500/20 transition-colors">
-              <div className="flex items-start gap-4">
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-amber-100 mb-3">3. Beta decay β+</h3>
-                  <p className="text-gray-400 text-sm mb-4">
-                    The user sends protons to the reactor and receives neutrons.
-                  </p>
-                  <div className="flex items-center gap-3 text-xs">
-                    <span className="px-3 py-1 bg-red-500/10 text-red-300 rounded-full">Input: Protons</span>
-                    <span className="text-gray-500">→</span>
-                    <span className="px-3 py-1 bg-green-500/10 text-green-300 rounded-full">Output: Neutrons</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Beta Decay β- */}
-            <div className="bg-white/[0.02] p-8 rounded-xl border border-white/5 hover:border-amber-500/20 transition-colors">
-              <div className="flex items-start gap-4">
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-amber-100 mb-3">4. Beta decay β−</h3>
-                  <p className="text-gray-400 text-sm mb-4">
-                    The user sends neutrons to the reactor and receives protons.
-                  </p>
-                  <div className="flex items-center gap-3 text-xs">
-                    <span className="px-3 py-1 bg-green-500/10 text-green-300 rounded-full">Input: Neutrons</span>
-                    <span className="text-gray-500">→</span>
-                    <span className="px-3 py-1 bg-red-500/10 text-red-300 rounded-full">Output: Protons</span>
-                  </div>
-                </div>
-              </div>
+              {/* Right Side - Focus Rail */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <FocusRail
+                  items={HOW_IT_WORKS_RAIL_ITEMS}
+                  loop={false}
+                  autoPlay={false}
+                  scrollBased={true}
+                  scrollContainerRef={howItWorksSectionRef}
+                  className="rounded-2xl"
+                />
+              </motion.div>
             </div>
           </div>
+        </section>
+      </div>
 
-          <div className="mt-12 p-6 bg-amber-500/5 border border-amber-500/20 rounded-xl">
-            <p className="text-sm text-gray-400 leading-relaxed">
-              <span className="text-amber-300 font-semibold">Dynamic Fees:</span> Beta decay reactions have variable fees based on recent transaction volume, protecting the protocol from oracle manipulation while keeping costs low during normal usage.
-            </p>
-          </div>
+      {/* Dynamic Fees Info Card - below sticky zone */}
+      <section className="relative px-6 py-24 sm:px-8 lg:px-16 border-t border-white/5">
+        <div className="relative mx-auto max-w-4xl">
+          <motion.div 
+            className="relative"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="relative p-8 bg-white/[0.03] border border-white/10 rounded-2xl backdrop-blur-sm hover:border-amber-500/30 transition-all duration-500">
+              <div className="flex flex-col md:flex-row items-start gap-6">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-xl font-bold text-amber-300 mb-2">Dynamic Fee System</h4>
+                  <p className="text-gray-400 leading-relaxed">
+                    Beta decay reactions feature variable fees based on recent transaction volume, protecting the protocol from oracle manipulation while keeping costs low during normal usage. This adaptive mechanism ensures both security and efficiency.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Whitepaper Section */}
       <ScrollExpandMedia
         mediaType="image"
-        mediaSrc="/whitepaper.png"
+        mediaSrc="/whitepaper1.png"
         title="GLUON W"
         date="Cryptocurrency Stabilization Protocol"
         scrollToExpand="Scroll to Explore"
@@ -171,13 +219,13 @@ export default function Home() {
           
           <div className="max-w-md mx-auto">
             <p className="text-base text-black/70 leading-relaxed text-center font-medium">
-              A peer-reviewed approach to cryptocurrency stabilization through dual-token mechanics and reflexive settlement architecture.
+              A peer-reviewed cryptocurrency stabilization protocol leveraging dual-token mechanics and state-dependent settlement rules.
             </p>
           </div>
 
           <div className="pt-8 flex flex-col items-center gap-3">
             <a
-              href="https://gluon.stability.nexus/whitepaper.pdf"
+              href="https://eprint.iacr.org/2025/1372"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-flex items-center gap-2.5 px-6 py-3 bg-black/80 hover:bg-black border border-black text-white text-sm font-medium rounded-lg transition-all duration-500 overflow-hidden"
@@ -187,9 +235,7 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               <span className="relative z-10">Read Full Paper</span>
-              <span className="relative z-10 text-[10px] text-amber-400/80">PDF</span>
             </a>
-            <p className="text-[10px] text-gray-600 font-light tracking-wide">2.4 MB · 2025</p>
           </div>
         </div>
       </ScrollExpandMedia>

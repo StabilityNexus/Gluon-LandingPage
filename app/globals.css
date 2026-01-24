@@ -31,3 +31,15 @@ html {
     background-image: radial-gradient(circle, var(--tw-gradient-stops));
   }
 }
+
+/* Premium flow glow – smooth continuous slide */
+@keyframes flow-glow {
+  0% { transform: translateX(-120%); opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { transform: translateX(220%); opacity: 0; }
+}
+
+.animate-flow-glow {
+  animation: flow-glow 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
