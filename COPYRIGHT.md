@@ -1,4 +1,4 @@
-Copyright © 2025 The Stable Order 
+Copyright © 2025 The Stable Order <br />
 All rights reserved.
 
 All works in this repository may be used according to the conditions 
