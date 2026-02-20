@@ -333,7 +333,7 @@ export function FocusRail({
               <motion.div
                 key={absIndex}
                 className={cn(
-                  "absolute aspect-[3/4] w-[20px] md:w-[280px] rounded-2xl bg-neutral-900/90 shadow-2xl transition-shadow duration-300 overflow-hidden",
+                  "absolute aspect-[3/4] w-[200px] md:w-[280px] rounded-2xl bg-neutral-900/90 shadow-2xl transition-shadow duration-300 overflow-hidden",
                   isCenter ? "z-20 shadow-amber-500/10 border-2 border-amber-500/40" : "z-10 border border-white/10"
                 )}
                 initial={false}

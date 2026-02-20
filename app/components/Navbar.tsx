@@ -3,14 +3,18 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
+
+const NAV_LINK_CLASS =
+  "px-5 py-1.5 text-sm font-semibold text-amber-100 bg-white/[0.02] border border-white/10 rounded-full hover:border-amber-500/50 hover:bg-white/[0.05] hover:text-amber-400 hover:scale-105 hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300 block text-center"
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [hasAnimated, setHasAnimated] = useState(false)
   const [windowWidth, setWindowWidth] = useState(0)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const timer = setTimeout(() => setHasAnimated(true), 100)
@@ -29,6 +33,10 @@ export default function Navbar() {
       clearTimeout(timer)
     }
   }, [])
+
+  useEffect(() => {
+    if (windowWidth >= 768) setMenuOpen(false)
+  }, [windowWidth])
   
   // Calculate padding based on window width
   // When scrolled: extremely left and right (large padding)
@@ -116,34 +124,63 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Right side buttons */}
-          <div className="flex items-center gap-2 flex-shrink-0">
-            <a 
-              href="https://evm.gluon.stability.nexus/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="px-5 py-1.5 text-sm font-semibold text-amber-100 bg-white/[0.02] border border-white/10 rounded-full hover:border-amber-500/50 hover:bg-white/[0.05] hover:text-amber-400 hover:scale-105 hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300"
-            >
+          {/* Desktop: link buttons */}
+          <div className="hidden md:flex items-center gap-2 flex-shrink-0">
+            <a href="https://evm.gluon.stability.nexus/" target="_blank" rel="noopener noreferrer" className={NAV_LINK_CLASS}>
               EVM
             </a>
-            <a 
-              href="https://gluon.gold/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="px-5 py-1.5 text-sm font-semibold text-amber-100 bg-white/[0.02] border border-white/10 rounded-full hover:border-amber-500/50 hover:bg-white/[0.05] hover:text-amber-400 hover:scale-105 hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300"
-            >
+            <a href="https://gluon.gold/" target="_blank" rel="noopener noreferrer" className={NAV_LINK_CLASS}>
               Ergo
             </a>
-            <a 
-              href="https://solana.gluon.stability.nexus/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="px-5 py-1.5 text-sm font-semibold text-amber-100 bg-white/[0.02] border border-white/10 rounded-full hover:border-amber-500/50 hover:bg-white/[0.05] hover:text-amber-400 hover:scale-105 hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300"
-            >
+            <a href="https://solana.gluon.stability.nexus/" target="_blank" rel="noopener noreferrer" className={NAV_LINK_CLASS}>
               Solana
             </a>
           </div>
+
+          {/* Mobile: hamburger */}
+          <button
+            type="button"
+            onClick={() => setMenuOpen((o) => !o)}
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-amber-100 hover:bg-white/10 transition-colors"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
         </motion.div>
+
+        {/* Mobile dropdown */}
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden overflow-hidden border-t border-white/10"
+            >
+              <div className="flex flex-col gap-2 py-3">
+                <a href="https://evm.gluon.stability.nexus/" target="_blank" rel="noopener noreferrer" className={NAV_LINK_CLASS} onClick={() => setMenuOpen(false)}>
+                  EVM
+                </a>
+                <a href="https://gluon.gold/" target="_blank" rel="noopener noreferrer" className={NAV_LINK_CLASS} onClick={() => setMenuOpen(false)}>
+                  Ergo
+                </a>
+                <a href="https://solana.gluon.stability.nexus/" target="_blank" rel="noopener noreferrer" className={NAV_LINK_CLASS} onClick={() => setMenuOpen(false)}>
+                  Solana
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.nav>
     </motion.header>
     </>

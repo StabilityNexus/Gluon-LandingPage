@@ -55,7 +55,7 @@ export default function Home() {
         {/* Hero Section */}
       <section className="relative overflow-hidden px-6 pt-32 pb-48 sm:px-8 lg:px-16 min-h-screen flex items-center bg-[#0F1015]">
         <div className="relative mx-auto max-w-4xl text-center w-full z-10">
-          <h1 className="text-8xl font-bold text-amber-100 sm:text-6xl lg:text-7xl mt-29 tracking-tight">
+          <h1 className="text-5xl font-bold text-amber-100 sm:text-6xl lg:text-7xl mt-29 tracking-tight">
             Gluon Protocol
           </h1>
           
