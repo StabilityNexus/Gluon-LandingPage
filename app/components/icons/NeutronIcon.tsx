@@ -17,8 +17,11 @@ export default function NeutronIcon({
       className={className}
       width={size}
       height={size}
+      role="img"
+      aria-label="Neutron stable token"
     >
-      <g transform="scale(1)">
+      <title>Neutron stable token</title>
+      <g>
         <circle
           fill="#f59e0b"
           cx="131.14"

@@ -314,7 +314,7 @@ export default function Home() {
             />
             
             <p className="text-gray-500 text-sm text-center">
-              © 2025 Stability Nexus. All rights reserved.
+              © 2026 Stability Nexus. All rights reserved.
             </p>
             
             <div className="flex gap-4">

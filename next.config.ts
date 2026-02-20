@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const repoName = "Gluon-LandingPage";
+const repoName = process.env.NEXT_PUBLIC_BASE_PATH?.replace(/^\//, "") ?? "Gluon-LandingPage";
 
 const nextConfig: NextConfig = {
   output: "export",

@@ -17,7 +17,10 @@ export default function ProtonIcon({
       className={className}
       width={size}
       height={size}
+      role="img"
+      aria-label="Proton token"
     >
+      <title>Proton token</title>
       <g>
         <circle
           fill="#e4201f"

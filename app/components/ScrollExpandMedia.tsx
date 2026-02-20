@@ -61,8 +61,6 @@ const ScrollExpandMedia = ({
     [isMobileState ? 280 : 320, isMobileState ? 280 : 320, isMobileState ? 500 : 650, isMobileState ? 500 : 650]
   );
 
-  const scale = useTransform(scrollYProgress, [0, 0.2, 0.6, 1], [1, 1, 1, 1]);
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.3, 1], [0, 0, 0]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.5, 0.7, 1], [1, 1, 1, 0]);
   const firstWord = title ? title.split(' ')[0] : '';
   const restOfTitle = title ? title.split(' ').slice(1).join(' ') : '';
@@ -80,7 +78,6 @@ const ScrollExpandMedia = ({
             style={{
               width: mediaWidth,
               height: mediaHeight,
-              scale: scale,
             }}
           >
             {mediaType === 'image' ? (
@@ -112,7 +109,6 @@ const ScrollExpandMedia = ({
           {/* Title Animation */}
           <motion.div
             className='absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-20'
-            style={{ opacity: titleOpacity }}
           >
             <div className={`flex flex-col items-center gap-3 ${textBlend ? 'mix-blend-difference' : ''}`}>
               <motion.h2 

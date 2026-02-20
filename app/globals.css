@@ -26,6 +26,15 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-flow-glow {
+    animation: none !important;
+  }
+}
+
 @layer utilities {
   .bg-gradient-radial {
     background-image: radial-gradient(circle, var(--tw-gradient-stops));

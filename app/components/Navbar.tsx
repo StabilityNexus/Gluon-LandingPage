@@ -20,7 +20,11 @@ export default function Navbar() {
     const timer = setTimeout(() => setHasAnimated(true), 100)
 
     const handleScroll = () => setIsScrolled(window.scrollY > 50)
-    const handleResize = () => setWindowWidth(window.innerWidth)
+    const handleResize = () => {
+      const w = window.innerWidth
+      setWindowWidth(w)
+      if (w >= 768) setMenuOpen(false)
+    }
 
     handleScroll()
     handleResize()
@@ -33,10 +37,6 @@ export default function Navbar() {
       clearTimeout(timer)
     }
   }, [])
-
-  useEffect(() => {
-    if (windowWidth >= 768) setMenuOpen(false)
-  }, [windowWidth])
   
   // Calculate padding based on window width
   // When scrolled: extremely left and right (large padding)
