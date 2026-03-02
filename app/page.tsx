@@ -217,7 +217,8 @@ export default function Home() {
         </div>
       </ScrollExpandMedia>
 
-      {/* Why Gluon Section */}
+      {/* Why Gluon Section - COMMENTED OUT for now; see GitHub issue for tracking. */}
+      {/*
       <section className="px-6 py-20 sm:px-8 lg:px-16 border-t border-white/5">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-3xl sm:text-4xl font-bold text-amber-100 mb-12">
@@ -225,7 +226,7 @@ export default function Home() {
           </h2>
           
           <div className="grid md:grid-cols-2 gap-12">
-            {/* For Protocol Integrators */}
+            (For Protocol Integrators column)
             <div>
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-1.5 h-8 bg-gradient-to-b from-amber-400 to-yellow-500 rounded-full"></div>
@@ -263,7 +264,7 @@ export default function Home() {
               </div>
             </div>
           
-            {/* For Users */}
+            (For Users column)
             <div>
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-1.5 h-8 bg-gradient-to-b from-amber-400 to-orange-400 rounded-full"></div>
@@ -303,6 +304,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Footer */}
       <footer className="px-6 py-16 sm:px-8 lg:px-16 border-t border-white/5">
