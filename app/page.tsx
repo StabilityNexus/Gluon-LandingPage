@@ -5,13 +5,15 @@ import Image from 'next/image'
 import Navbar from './components/Navbar'
 import ScrollExpandMedia from './components/ScrollExpandMedia'
 import { FocusRail, type FocusRailItem } from './ui/focus-rail'
-import { CartoonButton } from './components/ui/cartoon-button'
 import { motion } from 'framer-motion'
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
 
 const HERO_LINK_CLASS =
   "px-8 py-3 text-lg font-semibold text-white bg-white/[0.02] border border-white/10 rounded-full hover:border-gluon/50 hover:bg-white/[0.05] hover:text-gluon hover:scale-105 hover:shadow-lg hover:shadow-gluon/20 transition-all duration-300"
+
+const RESEARCH_LINK_CLASS =
+  "px-8 py-3 text-lg font-semibold text-black bg-white/[0.08] border border-black/20 rounded-full hover:border-black/30 hover:bg-white/20 hover:scale-105 hover:shadow-lg transition-all duration-300"
 
 const FOOTER_SOCIAL_LINK_CLASS =
   "w-10 h-10 rounded-lg bg-white/[0.04] backdrop-blur-md border border-[rgba(252,204,24,0.15)] flex items-center justify-center text-white/80 hover:text-white hover:border-gluon-shade/40 hover:bg-white/[0.08] transition-all"
@@ -205,12 +207,15 @@ export default function Home() {
           </div>
 
           <div className="pt-8 flex flex-col items-center gap-3">
-            <CartoonButton 
-              label="Read Full Paper"
+            <a
               href="https://eprint.iacr.org/2025/1372"
-              external
-              noBorder
-            />
+              target="_blank"
+              rel="noopener noreferrer"
+              className={RESEARCH_LINK_CLASS}
+              aria-label="Read full paper (opens in new tab)"
+            >
+              Read Full Paper
+            </a>
           </div>
         </div>
       </ScrollExpandMedia>
