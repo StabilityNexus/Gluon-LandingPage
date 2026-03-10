@@ -28,7 +28,7 @@ function TokenIcon({ type, size = 44, showLabel = true }: TokenIconProps) {
   return (
     <div className="flex flex-col items-center gap-1.5">
       <div
-        className={`${rounded} flex items-center justify-center overflow-hidden border border-white/[0.08] bg-white/[0.04] ${glow}`}
+        className={`${rounded} flex items-center justify-center overflow-hidden border border-[rgba(252,204,24,0.12)] bg-white/[0.04] backdrop-blur-sm ${glow}`}
         style={{ width: size, height: size }}
       >
         <Icon size={Math.round(size * 0.88)} className="shrink-0" />
@@ -149,7 +149,7 @@ export default function ReactionFlow() {
 
   return (
     <div className="relative">
-      <div className="mx-auto max-w-2xl rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+      <div className="mx-auto max-w-2xl rounded-2xl p-6 glass-card">
         {/* Tabs */}
         <div className="flex flex-wrap justify-center gap-2">
           {REACTIONS.map((item, i) => (
@@ -161,13 +161,13 @@ export default function ReactionFlow() {
               {i === active && (
                 <motion.div
                   layoutId="reaction-tab"
-                  className="absolute inset-0 rounded-lg border border-amber-500/30 bg-amber-500/10"
+                  className="absolute inset-0 rounded-lg border border-[rgba(252,204,24,0.2)] bg-white/[0.04] backdrop-blur-sm"
                   transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                 />
               )}
               <span
                 className={`relative z-10 flex items-center gap-2 ${
-                  i === active ? 'text-amber-300' : 'text-white/50 hover:text-white/70'
+                  i === active ? 'text-white' : 'text-white/50 hover:text-white/70'
                 }`}
               >
                 <span className="text-base">{item.icon}</span>
@@ -191,7 +191,7 @@ export default function ReactionFlow() {
               inputTokens={r.inputTokens}
               outputTokens={r.outputTokens}
             />
-            <p className="text-center text-xs font-medium uppercase tracking-wider text-amber-400/80">
+            <p className="text-center text-xs font-medium uppercase tracking-wider text-white/70">
               {r.short}
             </p>
             <p className="mt-4 text-center text-sm leading-relaxed text-white/60">

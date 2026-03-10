@@ -10,10 +10,13 @@ import { motion } from 'framer-motion'
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
 
 const HERO_LINK_CLASS =
-  "px-8 py-3 text-lg font-semibold text-amber-100 bg-white/[0.02] border border-white/10 rounded-full hover:border-amber-500/50 hover:bg-white/[0.05] hover:text-amber-400 hover:scale-105 hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300"
+  "px-8 py-3 text-lg font-semibold text-white bg-white/[0.02] border border-white/10 rounded-full hover:border-gluon/50 hover:bg-white/[0.05] hover:text-gluon hover:scale-105 hover:shadow-lg hover:shadow-gluon/20 transition-all duration-300"
+
+const RESEARCH_LINK_CLASS =
+  "px-8 py-3 text-lg font-semibold text-black bg-white/[0.08] border border-black/20 rounded-full hover:border-black/30 hover:bg-white/20 hover:scale-105 hover:shadow-lg transition-all duration-300"
 
 const FOOTER_SOCIAL_LINK_CLASS =
-  "w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all"
+  "w-10 h-10 rounded-lg bg-white/[0.04] backdrop-blur-md border border-[rgba(252,204,24,0.15)] flex items-center justify-center text-white/80 hover:text-white hover:border-gluon-shade/40 hover:bg-white/[0.08] transition-all"
 
 const HOW_IT_WORKS_RAIL_ITEMS: FocusRailItem[] = [
   {
@@ -55,22 +58,22 @@ export default function Home() {
 
   return (
     <>
-      <div className="min-h-screen bg-[#0F1015]">
+      <div className="min-h-screen bg-background relative">
         <Navbar />
-        <main>
+        <main className="relative z-10">
         {/* Hero Section */}
-      <section className="relative overflow-hidden px-6 pt-32 pb-48 sm:px-8 lg:px-16 min-h-screen flex items-center bg-[#0F1015]">
+      <section className="relative overflow-hidden px-6 pt-32 pb-48 sm:px-8 lg:px-16 min-h-screen flex items-center bg-background">
         <div className="relative mx-auto max-w-4xl text-center w-full z-10">
-          <h1 className="text-5xl font-bold text-amber-100 sm:text-6xl lg:text-7xl mt-29 tracking-tight">
-            Gluon Protocol
+          <h1 className="text-5xl font-bold sm:text-6xl lg:text-7xl mt-[7.25rem] tracking-tight text-gluon">
+            Gluon Stablecoin Protocol
           </h1>
           
           {/* Choose Your Ecosystem */}
           <div className="mt-18">
-            <h2 className="text-2xl sm:text-3xl font-bold text-amber-100 mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
               Choose Your Ecosystem
             </h2>
-            <p className="text-gray-400 mb-12">
+            <p className="text-base sm:text-lg text-white/70 mb-12">
               Gluon is available on multiple blockchain networks
             </p>
             
@@ -80,6 +83,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={HERO_LINK_CLASS}
+                aria-label="Gluon on EVM (opens in new tab)"
               >
                 EVM
               </a>
@@ -89,6 +93,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={HERO_LINK_CLASS}
+                aria-label="Gluon on Ergo (opens in new tab)"
               >
                 Ergo
               </a>
@@ -98,6 +103,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={HERO_LINK_CLASS}
+                aria-label="Gluon on Solana (opens in new tab)"
               >
                 Solana
               </a>
@@ -114,10 +120,10 @@ export default function Home() {
       >
         <section 
           id="how-it-works" 
-          className="sticky top-0 px-6 py-24 sm:px-8 lg:px-16 border-t border-white/5 min-h-screen flex items-center"
+          className="sticky top-0 px-6 py-24 sm:px-8 lg:px-16 border-t border-white/5 min-h-screen flex items-center bg-background"
         >
           {/* Subtle background accent */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/[0.03] rounded-full blur-[100px] pointer-events-none"></div>
           
           <div className="relative mx-auto max-w-7xl w-full">
             {/* Header Badge */}
@@ -129,7 +135,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <div className="inline-block">
-                <span className="px-4 py-2 text-sm font-semibold text-amber-400 border border-amber-500/30 rounded-full bg-amber-500/10 backdrop-blur-sm">
+                <span className="px-4 py-2 text-sm font-semibold text-white/90 rounded-full glass-card-strong">
                   How It Works
                 </span>
               </div>
@@ -145,14 +151,14 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className="text-4xl sm:text-5xl font-bold text-amber-100">
+                <h2 className="text-4xl sm:text-5xl font-bold text-white">
                   Dual Token Mechanics
                 </h2>
-                <div className="space-y-4 text-gray-400 leading-relaxed">
+                <div className="space-y-4 text-white/90 leading-relaxed">
                   <p className="text-base">
-                    The essence of Gluon W is that, analogously to how an atom&apos;s nucleus is composed of protons and neutrons (known collectively as nucleons), a <span className="text-violet-400 font-medium">base</span> token is composed of two sub-assets: <span className="text-amber-300 font-medium">neutrons</span> or stable tokens, whose price is kept stable relative to a target price; and <span className="text-red-400 font-medium">protons</span> or volatile tokens, whose price is more volatile than the <span className="text-violet-400 font-medium">base</span> token.
+                    The essence of Gluon W is that, analogously to how an atom's nucleus is composed of protons and neutrons (known collectively as nucleons), a <span className="text-violet-400 font-medium">base</span> token is composed of two sub-assets: <span className="font-medium text-[#f59e0b]">neutrons</span> or stable tokens, whose price is kept stable relative to a target price; and <span className="font-medium text-[#E42423]">protons</span> or volatile tokens, whose price is more volatile than the <span className="text-violet-400 font-medium">base</span> token.
                   </p>
-                  <p className="text-base text-gray-500">
+                  <p className="text-base text-white/70">
                     The protocol defines the rules of an autonomous reactor capable of four reactions:
                   </p>
                 </div>
@@ -171,7 +177,7 @@ export default function Home() {
                   autoPlay={false}
                   scrollBased={true}
                   scrollContainerRef={howItWorksSectionRef}
-                  className="rounded-2xl"
+                  className="rounded-2xl glass-card-strong"
                 />
               </motion.div>
             </div>
@@ -205,13 +211,10 @@ export default function Home() {
               href="https://eprint.iacr.org/2025/1372"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex items-center gap-2.5 px-6 py-3 bg-black/80 hover:bg-black border border-black text-white text-sm font-medium rounded-lg transition-all duration-500 overflow-hidden"
+              className={RESEARCH_LINK_CLASS}
+              aria-label="Read full paper (opens in new tab)"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-500/0 via-amber-500/20 to-amber-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-              <svg className="w-4 h-4 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              <span className="relative z-10">Read Full Paper</span>
+              Read Full Paper
             </a>
           </div>
         </div>
@@ -221,7 +224,7 @@ export default function Home() {
       {/*
       <section className="px-6 py-20 sm:px-8 lg:px-16 border-t border-white/5">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-3xl sm:text-4xl font-bold text-amber-100 mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-12">
             Why Gluon
           </h2>
           
@@ -229,33 +232,33 @@ export default function Home() {
             (For Protocol Integrators column)
             <div>
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-1.5 h-8 bg-gradient-to-b from-amber-400 to-yellow-500 rounded-full"></div>
-                <h3 className="text-2xl font-bold text-amber-100">For Protocol Integrators</h3>
+                <div className="w-1.5 h-8 bg-gradient-to-b from-white/40 to-white/20 rounded-full"></div>
+                <h3 className="text-2xl font-bold text-white">For Protocol Integrators</h3>
               </div>
             
               <div className="space-y-6">
-                <div className="bg-white/[0.02] p-6 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
+                <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
                   <h4 className="text-lg font-semibold text-white mb-2">Create Custom Stablecoins</h4>
                   <p className="text-gray-400 text-sm">
                     Launch your own branded stablecoin backed by various crypto assets with customizable parameters.
                   </p>
                 </div>
                 
-                <div className="bg-white/[0.02] p-6 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
+                <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
                   <h4 className="text-lg font-semibold text-white mb-2">Multi-Chain Deployment</h4>
                   <p className="text-gray-400 text-sm">
                     Deploy on EVM chains, Ergo, or Solana to reach users across different blockchain ecosystems.
                   </p>
                 </div>
                 
-                <div className="bg-white/[0.02] p-6 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
+                <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
                   <h4 className="text-lg font-semibold text-white mb-2">Earn Protocol Fees</h4>
                   <p className="text-gray-400 text-sm">
                     Receive a portion of fees generated from minting, redemption, and liquidation activities.
                   </p>
                 </div>
                 
-                <div className="bg-white/[0.02] p-6 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
+                <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
                   <h4 className="text-lg font-semibold text-white mb-2">Enhance Your DeFi Ecosystem</h4>
                   <p className="text-gray-400 text-sm">
                     Add stablecoin infrastructure to your protocol without building from scratch, enabling new use cases.
@@ -267,33 +270,33 @@ export default function Home() {
             (For Users column)
             <div>
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-1.5 h-8 bg-gradient-to-b from-amber-400 to-orange-400 rounded-full"></div>
-                <h3 className="text-2xl font-bold text-amber-100">For Users</h3>
+                <div className="w-1.5 h-8 bg-gradient-to-b from-white/40 to-white/20 rounded-full"></div>
+                <h3 className="text-2xl font-bold text-white">For Users</h3>
               </div>
               
               <div className="space-y-6">
-                <div className="bg-white/[0.02] p-6 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
+                <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
                   <h4 className="text-lg font-semibold text-white mb-2">Unlock Liquidity Without Selling</h4>
                   <p className="text-gray-400 text-sm">
                     Mint stablecoins against your crypto holdings to access liquidity while maintaining exposure to your assets.
                   </p>
                 </div>
                 
-                <div className="bg-white/[0.02] p-6 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
+                <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
                   <h4 className="text-lg font-semibold text-white mb-2">Decentralized and Trustless</h4>
                   <p className="text-gray-400 text-sm">
                     All operations are executed by smart contracts with no central authority controlling your funds.
                   </p>
                 </div>
                 
-                <div className="bg-white/[0.02] p-6 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
+                <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
                   <h4 className="text-lg font-semibold text-white mb-2">Transparent Collateralization</h4>
                   <p className="text-gray-400 text-sm">
                     View real-time collateral ratios and protocol health. Every stablecoin is verifiably backed on-chain.
                   </p>
                 </div>
                 
-                <div className="bg-white/[0.02] p-6 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
+                <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
                   <h4 className="text-lg font-semibold text-white mb-2">Flexible Participation</h4>
                   <p className="text-gray-400 text-sm">
                     Mint and redeem at any time, choosing from a variety of supported collateral types and stablecoin denominations.
@@ -318,8 +321,8 @@ export default function Home() {
               className="h-12 w-auto"
             />
             
-            <p className="text-gray-500 text-sm text-center">
-              © 2026 Stability Nexus. All rights reserved.
+            <p className="text-white/60 text-sm text-center">
+              © {new Date().getFullYear()} Stability Nexus. All rights reserved.
             </p>
             
             <div className="flex gap-4">

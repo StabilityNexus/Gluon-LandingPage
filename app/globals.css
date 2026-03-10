@@ -3,11 +3,35 @@
 :root {
   --background: #000000;
   --foreground: #ffffff;
+  --gluon: #FCCC18;
+  --gluon-shade: #C9A012;
+  --surface: #0a0a0a;
+  --surface-elevated: #111111;
+}
+
+/* Glassmorphism 3.0: frosted glass + ultra-thin gold border */
+.glass-card {
+  background-color: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(252, 204, 24, 0.15);
+}
+
+.glass-card-strong {
+  background-color: rgba(15, 15, 30, 0.4);
+  backdrop-filter: blur(60px);
+  -webkit-backdrop-filter: blur(60px);
+  border: 1px solid rgba(252, 204, 24, 0.3);
+  background-blend-mode: multiply;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-gluon: var(--gluon);
+  --color-gluon-shade: var(--gluon-shade);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -15,11 +39,21 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Deep Space: high-contrast depth, gold feels like a physical asset */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: 
+    radial-gradient(ellipse 140% 80% at 50% -30%, rgba(255, 255, 255, 0.015) 0%, transparent 45%),
+    radial-gradient(ellipse 80% 120% at 50% 120%, rgba(0, 0, 0, 0.5) 0%, transparent 50%);
 }
 
 html {
