@@ -23,7 +23,7 @@ export default function ProtonIcon({
       <title>Proton token</title>
       <g>
         <circle
-          fill="#e4201f"
+          fill="#E42423"
           cx="131.14"
           cy="131.14"
           r="131.11"

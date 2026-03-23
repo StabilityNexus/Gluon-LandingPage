@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
 
 const NAV_LINK_CLASS =
-  "px-5 py-1.5 text-sm font-semibold text-amber-100 bg-white/[0.02] border border-white/10 rounded-full hover:border-amber-500/50 hover:bg-white/[0.05] hover:text-amber-400 hover:scale-105 hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300 block text-center"
+  "px-5 py-1.5 text-sm font-semibold text-white/90 bg-white/[0.04] backdrop-blur-md border border-[rgba(252,204,24,0.2)] rounded-full hover:border-gluon-shade/50 hover:bg-white/[0.06] hover:text-gluon hover:scale-105 hover:shadow-lg hover:shadow-gluon-shade/20 transition-all duration-300 block text-center"
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -67,7 +67,7 @@ export default function Navbar() {
     <>
       {/* Background glow effect */}
       <div className="fixed top-0 left-0 right-0 h-32 z-40 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-32 bg-amber-500/10 blur-3xl"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-32 bg-white/[0.02] blur-3xl"></div>
       </div>
 
       <motion.header
@@ -77,19 +77,20 @@ export default function Navbar() {
       >
       <motion.nav
         className="mx-auto mt-2 backdrop-blur-xl w-full"
+        style={{ WebkitBackdropFilter: 'blur(20px)' }}
         initial={{
-          backgroundColor: 'rgba(15, 16, 21, 0.3)',
+          backgroundColor: 'rgba(15, 15, 30, 0.25)',
           maxWidth: '100%',
           borderRadius: '0px',
-          border: '1px solid rgba(255, 255, 255, 0)',
+          border: '1px solid rgba(252, 204, 24, 0.08)',
           paddingLeft: windowWidth > 0 ? getPadding() : '128px',
           paddingRight: windowWidth > 0 ? getPadding() : '128px',
         }}
         animate={hasAnimated ? {
-          backgroundColor: isScrolled ? 'rgba(15, 16, 21, 0.7)' : 'rgba(15, 16, 21, 0.3)',
+          backgroundColor: isScrolled ? 'rgba(15, 15, 30, 0.55)' : 'rgba(15, 15, 30, 0.25)',
           maxWidth: '100%',
           borderRadius: isScrolled ? '16px' : '0px',
-          border: isScrolled ? '1px solid rgba(255, 255, 255, 0.05)' : '1px solid rgba(255, 255, 255, 0)',
+          border: isScrolled ? '1px solid rgba(252, 204, 24, 0.12)' : '1px solid rgba(252, 204, 24, 0.08)',
           paddingLeft: getPadding(),
           paddingRight: getPadding(),
         } : undefined}
@@ -120,7 +121,7 @@ export default function Navbar() {
           <div className="flex items-center flex-shrink-0">
             <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity">
               <Image src={`${basePath}/image.png`} alt="Gluon" width={32} height={32} className="h-8 w-auto" />
-              <span className="text-xl font-semibold text-amber-400">Gluon</span>
+              <span className="text-xl font-semibold text-gluon">Gluon</span>
             </Link>
           </div>
 
@@ -141,7 +142,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMenuOpen((o) => !o)}
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-amber-100 hover:bg-white/10 transition-colors"
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-white/90 hover:bg-white/10 transition-colors"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
           >

@@ -61,18 +61,24 @@ function TokenIcon({ type, size = 60 }: TokenIconProps) {
       ? 'shadow-[0_0_16px_rgba(139,92,246,0.5)]'
       : type === 'neutron'
         ? 'shadow-[0_0_16px_rgba(245,158,11,0.5)]'
-        : 'shadow-[0_0_16px_rgba(228,32,31,0.5)]';
+        : 'shadow-[0_0_16px_rgba(229,36,35,0.5)]';
   const rounded = type === 'base' ? 'rounded-xl' : 'rounded-full';
 
+  const labelColor =
+    type === 'base'
+      ? 'text-violet-400'
+      : type === 'neutron'
+        ? 'text-[#f59e0b]'
+        : 'text-[#E42423]';
   return (
         <div className="flex flex-col items-center gap-2 p-1">
       <div
-        className={`${rounded} flex items-center justify-center overflow-hidden border border-white/15 bg-white/[0.06] shadow-sm ${glow}`}
+        className={`${rounded} flex items-center justify-center overflow-hidden backdrop-blur-sm bg-white/[0.06] border border-[rgba(252,204,24,0.12)] shadow-sm ${glow}`}
         style={{ width: size, height: size }}
       >
         <Icon size={Math.round(size * 0.85)} className="shrink-0" />
       </div>
-      <span className="text-xs font-semibold text-white/80">
+      <span className={cn('text-xs font-semibold', labelColor)}>
         {LABELS[type]}
       </span>
     </div>
@@ -91,7 +97,7 @@ function ReactionVisualization({
   const isMerge = inputTokens.length === 2 && outputTokens.length === 1;
 
   return (
-    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 pt-8 px-6 pb-6">
+    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-surface-elevated via-surface to-surface-elevated pt-8 px-6 pb-6 border-b border-[rgba(252,204,24,0.08)]">
       <div className="flex w-full items-center justify-between gap-4">
         {/* Input Tokens */}
         <div className="flex items-center gap-3">
@@ -107,7 +113,7 @@ function ReactionVisualization({
         </div>
 
         {/* Arrow / Flow */}
-        <div className="flex items-center text-amber-400/60 text-3xl font-light">
+        <div className="flex items-center text-white/40 text-3xl font-light">
           {isSplit && (
             <span className="flex items-center gap-1">
               <span>→</span>
@@ -153,10 +159,10 @@ function highlightTokenTerms(text: string) {
   return parts.map((part, i) => {
     const lower = part.toLowerCase();
     if (lower === 'neutron' || lower === 'neutrons') {
-      return <span key={i} className="text-amber-300 font-medium">{part}</span>;
+      return <span key={i} className="font-medium text-[#f59e0b]">{part}</span>;
     }
     if (lower === 'proton' || lower === 'protons') {
-      return <span key={i} className="text-red-400 font-medium">{part}</span>;
+      return <span key={i} className="font-medium text-[#E42423]">{part}</span>;
     }
     if (lower === 'base') {
       return <span key={i} className="text-violet-400 font-medium">{part}</span>;
@@ -279,7 +285,7 @@ export function FocusRail({
     <div
       ref={railRef}
       className={cn(
-        "group relative flex h-[560px] w-full flex-col overflow-hidden bg-[#0a0a0c] text-white outline-none select-none overflow-x-hidden rounded-2xl border border-white/10",
+        "group relative flex h-[560px] w-full flex-col overflow-hidden text-white outline-none select-none overflow-x-hidden rounded-2xl glass-card-strong",
         className
       )}
       onMouseEnter={() => setIsHovering(true)}
@@ -298,8 +304,8 @@ export function FocusRail({
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="absolute inset-0"
           >
-            <div className="h-full w-full bg-gradient-to-br from-amber-500/10 via-purple-500/10 to-amber-500/10 blur-3xl" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0F1015] via-[#0F1015]/90 to-transparent" />
+            <div className="h-full w-full bg-gradient-to-br from-white/[0.03] via-white/[0.02] to-white/[0.03] blur-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent" />
           </motion.div>
         </AnimatePresence>
       </div>
@@ -333,8 +339,8 @@ export function FocusRail({
               <motion.div
                 key={absIndex}
                 className={cn(
-                  "absolute aspect-[3/4] w-[200px] md:w-[280px] rounded-2xl bg-neutral-900/90 shadow-2xl transition-shadow duration-300 overflow-hidden",
-                  isCenter ? "z-20 shadow-amber-500/10 border-2 border-amber-500/40" : "z-10 border border-white/10"
+                  "absolute aspect-[3/4] w-[200px] md:w-[280px] rounded-2xl overflow-hidden shadow-2xl transition-shadow duration-300 backdrop-blur-xl bg-white/[0.06] border-[0.25px] border-[rgba(252,204,24,0.2)]",
+                  isCenter ? "z-20 shadow-gluon-shade/10 border-[0.25px] border-[rgba(252,204,24,0.35)]" : "z-10 border-[0.25px] border-[rgba(252,204,24,0.2)]"
                 )}
                 initial={false}
                 animate={{
@@ -371,11 +377,11 @@ export function FocusRail({
                 )}
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-amber-400/90">
-                    {item.meta}
+                  <span className="text-xs font-semibold uppercase tracking-wider text-white/80">
+                    {item.meta ? highlightTokenTerms(item.meta) : ''}
                   </span>
                   <p className="mt-1 font-bold text-white drop-shadow-lg">
-                    {item.title}
+                    {highlightTokenTerms(item.title)}
                   </p>
                 </div>
               </motion.div>
@@ -394,7 +400,7 @@ export function FocusRail({
                 transition={{ duration: 0.3 }}
                 className="space-y-2"
               >
-                <h2 className="text-2xl font-bold tracking-tight md:text-3xl text-amber-50">
+                <h2 className="text-2xl font-bold tracking-tight md:text-3xl text-white">
                   {activeItem.title}
                 </h2>
                 {activeItem.description && (
@@ -407,10 +413,10 @@ export function FocusRail({
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1 rounded-full bg-white/5 p-1 ring-1 ring-white/10 backdrop-blur-md">
+            <div className="flex items-center gap-1 rounded-full p-1 ring-1 ring-[rgba(252,204,24,0.15)] backdrop-blur-xl bg-white/[0.04]">
               <button
                 onClick={handlePrev}
-                className="rounded-full p-3 text-neutral-400 transition hover:bg-amber-500/20 hover:text-amber-300 active:scale-95"
+                className="rounded-full p-3 text-neutral-400 transition hover:bg-white/10 hover:text-white/90 active:scale-95"
                 aria-label="Previous"
               >
                 <ChevronLeft className="h-5 w-5" />
@@ -420,7 +426,7 @@ export function FocusRail({
               </span>
               <button
                 onClick={handleNext}
-                className="rounded-full p-3 text-neutral-400 transition hover:bg-amber-500/20 hover:text-amber-300 active:scale-95"
+                className="rounded-full p-3 text-neutral-400 transition hover:bg-white/10 hover:text-white/90 active:scale-95"
                 aria-label="Next"
               >
                 <ChevronRight className="h-5 w-5" />
@@ -430,7 +436,7 @@ export function FocusRail({
             {activeItem.href && (
               <Link
                 href={activeItem.href}
-                className="group flex items-center gap-2 rounded-full bg-amber-500 px-5 py-3 text-sm font-semibold text-black transition-transform hover:bg-amber-400 hover:scale-105 active:scale-95"
+                className="group flex items-center gap-2 rounded-full bg-gluon-shade px-5 py-3 text-sm font-semibold text-black transition-transform hover:bg-gluon hover:scale-105 active:scale-95"
               >
                 Explore
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

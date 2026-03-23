@@ -16,7 +16,7 @@ const MOVING_MAP: Record<Direction, string> = {
 };
 
 const HIGHLIGHT_GRADIENT =
-  "radial-gradient(100% 200% at 50% 50%, #fbbf24 0%, rgba(251, 191, 36, 0) 100%)";
+  "radial-gradient(100% 200% at 50% 50%, #FCCC18 0%, rgba(252, 204, 24, 0) 100%)";
 
 export function HoverBorderGradient({
   children,

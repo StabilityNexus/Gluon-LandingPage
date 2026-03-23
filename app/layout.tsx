@@ -13,20 +13,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gluon Protocol",
+  title: "Gluon Stablecoin Protocol",
   description:
     "Gluon W is a dual-token stabilization protocol. Split base tokens into neutrons (stable) and protons (volatile), or merge them back. DeFi-native mechanics with dynamic fees.",
   keywords: ["Gluon", "DeFi", "stablecoin", "dual token", "crypto", "EVM", "Ergo", "Solana"],
-  authors: [{ name: "Gluon Protocol" }],
+  authors: [{ name: "Gluon Stablecoin Protocol" }],
   openGraph: {
-    title: "Gluon Protocol",
+    title: "Gluon Stablecoin Protocol",
     description:
       "Gluon W is a dual-token stabilization protocol. Split base tokens into neutrons and protons. Available on EVM, Ergo, and Solana.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gluon Protocol",
+    title: "Gluon Stablecoin Protocol",
     description: "DeFi-native dual-token mechanics. Fission, fusion, and beta decay reactions.",
   },
   robots: "index, follow",
