@@ -1,0 +1,34 @@
+{
+  "name": "Gluon Protocol",
+  "version": "1.0.0",
+  "description": "A physics-inspired, zero-governance, rent-seeking free dual-asset stablecoin protocol.",
+  "architecture": "Dual-asset reserve model (Fission, Fusion, Transmutation/Beta Decay).",
+  "features": [
+    "Zero Governance & Autonomy",
+    "Rent-Seeking Free Infrastructure",
+    "Resilience to Oracle Imperfections (14-day trailing volume metrics)",
+    "Liquidity Pool Duality",
+    "No Liquidations or CDP Debt",
+    "Freedom from Hard Reserve Ratio Cutoffs",
+    "Transparent & Equitable Pricing Equations"
+  ],
+  "assets": {
+    "baseAsset": "Reserve Token (e.g. ERG, ETH, SOL)",
+    "stableCoin": "Neutron / Stable Token (e.g. GAU)",
+    "volatileCoin": "Proton / Volatile Token (e.g. GAUC)"
+  },
+  "instances": {
+    "ergo": "https://gluon.gold/",
+    "evm": "https://evm.gluon.stability.nexus/",
+    "solana": "https://solana.gluon.stability.nexus/"
+  },
+  "links": {
+    "website": "https://gluon.stability.nexus/",
+    "academicPaper": "https://eprint.iacr.org/2025/1372",
+    "organization": "https://stability.nexus",
+    "repository": "https://github.com/StabilityNexus/Gluon-LandingPage",
+    "documentation": "https://docs.djed.one",
+    "llmsTxt": "https://gluon.stability.nexus/llms.txt",
+    "openApi": "https://gluon.stability.nexus/openapi.json"
+  }
+}

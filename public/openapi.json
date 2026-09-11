@@ -12,7 +12,7 @@
     }
   ],
   "paths": {
-    "/api/info": {
+    "/api/info.json": {
       "get": {
         "summary": "Get Gluon Protocol information",
         "description": "Returns metadata, core architectural principles, features, live ecosystem instances (EVM, Ergo, Solana), and repository links for Gluon Protocol.",
