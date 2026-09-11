@@ -156,7 +156,7 @@ export default function Home() {
                 </h2>
                 <div className="space-y-4 text-white/90 leading-relaxed">
                   <p className="text-base">
-                    The essence of Gluon W is that, analogously to how an atom's nucleus is composed of protons and neutrons (known collectively as nucleons), a <span className="text-violet-400 font-medium">base</span> token is composed of two sub-assets: <span className="font-medium text-[#f59e0b]">neutrons</span> or stable tokens, whose price is kept stable relative to a target price; and <span className="font-medium text-[#E42423]">protons</span> or volatile tokens, whose price is more volatile than the <span className="text-violet-400 font-medium">base</span> token.
+                    The essence of Gluon W is that, analogously to how an atom&apos;s nucleus is composed of protons and neutrons (known collectively as nucleons), a <span className="text-violet-400 font-medium">base</span> token is composed of two sub-assets: <span className="font-medium text-[#f59e0b]">neutrons</span> or stable tokens, whose price is kept stable relative to a target price; and <span className="font-medium text-[#E42423]">protons</span> or volatile tokens, whose price is more volatile than the <span className="text-violet-400 font-medium">base</span> token.
                   </p>
                   <p className="text-base text-white/70">
                     The protocol defines the rules of an autonomous reactor capable of four reactions:
@@ -220,94 +220,96 @@ export default function Home() {
         </div>
       </ScrollExpandMedia>
 
-      {/* Why Gluon Section - COMMENTED OUT for now; see GitHub issue for tracking. */}
-      {/*
+      {/* Why Gluon Section */}
       <section className="px-6 py-20 sm:px-8 lg:px-16 border-t border-white/5">
         <div className="mx-auto max-w-6xl">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-12">
             Why Gluon
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-12">
-            (For Protocol Integrators column)
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-1.5 h-8 bg-gradient-to-b from-white/40 to-white/20 rounded-full"></div>
-                <h3 className="text-2xl font-bold text-white">For Protocol Integrators</h3>
-              </div>
-            
-              <div className="space-y-6">
-                <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
-                  <h4 className="text-lg font-semibold text-white mb-2">Create Custom Stablecoins</h4>
-                  <p className="text-gray-400 text-sm">
-                    Launch your own branded stablecoin backed by various crypto assets with customizable parameters.
-                  </p>
-                </div>
-                
-                <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
-                  <h4 className="text-lg font-semibold text-white mb-2">Multi-Chain Deployment</h4>
-                  <p className="text-gray-400 text-sm">
-                    Deploy on EVM chains, Ergo, or Solana to reach users across different blockchain ecosystems.
-                  </p>
-                </div>
-                
-                <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
-                  <h4 className="text-lg font-semibold text-white mb-2">Earn Protocol Fees</h4>
-                  <p className="text-gray-400 text-sm">
-                    Receive a portion of fees generated from minting, redemption, and liquidation activities.
-                  </p>
-                </div>
-                
-                <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
-                  <h4 className="text-lg font-semibold text-white mb-2">Enhance Your DeFi Ecosystem</h4>
-                  <p className="text-gray-400 text-sm">
-                    Add stablecoin infrastructure to your protocol without building from scratch, enabling new use cases.
-                  </p>
-                </div>
-              </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Box 1: Benefits of Holding Stable Coins */}
+            <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
+              <h3 className="text-lg font-semibold text-white mb-2">Benefits of Holding Stable Coins</h3>
+              <p className="text-gray-400 text-sm">
+                Maintain predictable price stability tied to a target peg while benefiting from reserve-strengthening protocol fees.
+              </p>
             </div>
-          
-            (For Users column)
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-1.5 h-8 bg-gradient-to-b from-white/40 to-white/20 rounded-full"></div>
-                <h3 className="text-2xl font-bold text-white">For Users</h3>
-              </div>
-              
-              <div className="space-y-6">
-                <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
-                  <h4 className="text-lg font-semibold text-white mb-2">Unlock Liquidity Without Selling</h4>
-                  <p className="text-gray-400 text-sm">
-                    Mint stablecoins against your crypto holdings to access liquidity while maintaining exposure to your assets.
-                  </p>
-                </div>
-                
-                <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
-                  <h4 className="text-lg font-semibold text-white mb-2">Decentralized and Trustless</h4>
-                  <p className="text-gray-400 text-sm">
-                    All operations are executed by smart contracts with no central authority controlling your funds.
-                  </p>
-                </div>
-                
-                <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
-                  <h4 className="text-lg font-semibold text-white mb-2">Transparent Collateralization</h4>
-                  <p className="text-gray-400 text-sm">
-                    View real-time collateral ratios and protocol health. Every stablecoin is verifiably backed on-chain.
-                  </p>
-                </div>
-                
-                <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
-                  <h4 className="text-lg font-semibold text-white mb-2">Flexible Participation</h4>
-                  <p className="text-gray-400 text-sm">
-                    Mint and redeem at any time, choosing from a variety of supported collateral types and stablecoin denominations.
-                  </p>
-                </div>
-              </div>
+            
+            {/* Box 2: Benefits of Holding Volatile Coins */}
+            <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
+              <h3 className="text-lg font-semibold text-white mb-2">Benefits of Holding Volatile Coins</h3>
+              <p className="text-gray-400 text-sm">
+                Gain leveraged exposure to the underlying reserve asset while capturing protocol growth and transaction fees.
+              </p>
+            </div>
+
+            {/* Box 3: Fission & Fusion Mechanisms */}
+            <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
+              <h3 className="text-lg font-semibold text-white mb-2">Fission & Fusion Mechanisms</h3>
+              <p className="text-gray-400 text-sm">
+                Split reserve assets into stable coins and volatile coins (Fission) or combine them back into reserve assets (Fusion).
+              </p>
+            </div>
+            
+            {/* Box 4: Zero-Governance & Autonomy */}
+            <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
+              <h3 className="text-lg font-semibold text-white mb-2">Zero-Governance & Autonomy</h3>
+              <p className="text-gray-400 text-sm">
+                Operate completely autonomously on-chain without central administration, admin keys, multi-sigs, or DAO parameter voting.
+              </p>
+            </div>
+            
+            {/* Box 5: Rent-Seeking Free Infrastructure */}
+            <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
+              <h3 className="text-lg font-semibold text-white mb-2">Rent-Seeking Free Infrastructure</h3>
+              <p className="text-gray-400 text-sm">
+                Function as permissionless public infrastructure where all transaction fees remain in the reserve to strengthen stability.
+              </p>
+            </div>
+
+            {/* Box 6: Resilience to Oracle Imperfections */}
+            <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
+              <h3 className="text-lg font-semibold text-white mb-2">Resilience to Oracle Imperfections</h3>
+              <p className="text-gray-400 text-sm">
+                Safeguard protocol reserves using dynamic trailing volume metrics against oracle latency or market price spikes.
+              </p>
+            </div>
+
+            {/* Box 7: Liquidity Pool Duality */}
+            <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
+              <h3 className="text-lg font-semibold text-white mb-2">Liquidity Pool Duality</h3>
+              <p className="text-gray-400 text-sm">
+                Act as the mathematical dual of a liquidity pool by maintaining a single reserve asset to issue stable coins and volatile coins.
+              </p>
+            </div>
+
+            {/* Box 8: No Liquidations or CDP Debt */}
+            <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
+              <h3 className="text-lg font-semibold text-white mb-2">No Liquidations or CDP Debt</h3>
+              <p className="text-gray-400 text-sm">
+                Mint and trade stable coins without liquidation risks, forced debt closures, or paying borrowing interest rates.
+              </p>
+            </div>
+            
+            {/* Box 9: Freedom from Hard Reserve Cutoffs */}
+            <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
+              <h3 className="text-lg font-semibold text-white mb-2">Freedom from Hard Reserve Cutoffs</h3>
+              <p className="text-gray-400 text-sm">
+                Execute all core operations continuously without rigid minimum or maximum reserve ratio thresholds.
+              </p>
+            </div>
+
+            {/* Box 10: Transparent & Equitable Pricing */}
+            <div className="p-6 rounded-xl glass-card hover:border-[rgba(252,204,24,0.25)] transition-colors">
+              <h3 className="text-lg font-semibold text-white mb-2">Transparent & Equitable Pricing</h3>
+              <p className="text-gray-400 text-sm">
+                Derive fair pricing and fee distributions directly from mathematical reaction equations.
+              </p>
             </div>
           </div>
         </div>
       </section>
-      */}
 
       {/* Footer */}
       <footer className="px-6 py-16 sm:px-8 lg:px-16 border-t border-white/5">

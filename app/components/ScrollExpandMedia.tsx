@@ -57,7 +57,7 @@ const ScrollExpandMedia = ({
     [isMobileState ? 280 : 320, isMobileState ? 280 : 320, isMobileState ? 500 : 650, isMobileState ? 500 : 650]
   );
 
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.5, 0.7, 1], [1, 1, 1, 0]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.5, 0.7, 1], [1, 1, 1, 1]);
   const firstWord = title ? title.split(' ')[0] : '';
   const restOfTitle = title ? title.split(' ').slice(1).join(' ') : '';
 
