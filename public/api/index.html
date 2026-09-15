@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gluon Protocol API</title>
+  <meta name="description" content="Machine-readable API for the Gluon stablecoin protocol." />
+</head>
+<body>
+  <h1>Gluon Protocol API</h1>
+  <p>Version: 1.0.0</p>
+  <p>Machine-readable API for the Gluon stablecoin protocol. Returns protocol metadata, ecosystem instances, and repository links.</p>
+
+  <h2>Endpoints</h2>
+  <ul>
+    <li><a href="/api/info.json">/api/info.json</a> — Full protocol metadata (JSON)</li>
+    <li><a href="/openapi.json">/openapi.json</a> — OpenAPI 3.0.1 specification</li>
+    <li><a href="/llms.txt">/llms.txt</a> — LLMs.txt for AI agents</li>
+  </ul>
+
+  <h2>Example Response</h2>
+  <pre><code>
+GET /api/info.json
+
+{
+  "name": "Gluon Protocol",
+  "version": "1.0.0",
+  "description": "A physics-inspired, zero-governance, rent-seeking free dual-asset stablecoin protocol.",
+  "features": [
+    "Zero Governance and Autonomy",
+    "Rent-Seeking Free Infrastructure",
+    "Resilience to Oracle Imperfections",
+    "Liquidity Pool Duality",
+    "No Liquidations or CDP Debt"
+  ],
+  "instances": {
+    "ergo": "https://gluon.gold/",
+    "evm": "https://evm.gluon.stability.nexus/",
+    "solana": "https://solana.gluon.stability.nexus/"
+  }
+}
+  </code></pre>
+
+  <script type="application/json" id="api-index">
+  {
+    "name": "Gluon Protocol API",
+    "version": "1.0.0",
+    "endpoints": {
+      "info": "/api/info.json",
+      "openapi": "/openapi.json",
+      "llms": "/llms.txt"
+    }
+  }
+  </script>
+</body>
+</html>
