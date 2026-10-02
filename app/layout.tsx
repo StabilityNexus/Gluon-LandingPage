@@ -13,21 +13,40 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gluon.stability.nexus"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Gluon Stablecoin Protocol",
   description:
-    "Gluon W is a dual-token stabilization protocol. Split base tokens into neutrons (stable) and protons (volatile), or merge them back. DeFi-native mechanics with dynamic fees.",
-  keywords: ["Gluon", "DeFi", "stablecoin", "dual token", "crypto", "EVM", "Ergo", "Solana"],
+    "Gluon is a dual-token stabilization protocol. Split base tokens into neutrons and protons. Available on EVM and Ergo.",
+  keywords: ["Gluon", "DeFi", "stablecoin", "dual token", "crypto", "EVM", "Ergo"],
   authors: [{ name: "Gluon Stablecoin Protocol" }],
   openGraph: {
     title: "Gluon Stablecoin Protocol",
     description:
-      "Gluon W is a dual-token stabilization protocol. Split base tokens into neutrons and protons. Available on EVM, Ergo, and Solana.",
+      "Gluon is a dual-token stabilization protocol. Split base tokens into neutrons and protons. Available on EVM and Ergo.",
+    url: "https://gluon.stability.nexus",
+    siteName: "Gluon Protocol",
+    images: [
+      {
+        url: "/image.png",
+        width: 512,
+        height: 512,
+        alt: "Gluon Logo",
+      },
+    ],
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Gluon Stablecoin Protocol",
-    description: "DeFi-native dual-token mechanics. Fission, fusion, and beta decay reactions.",
+    description:
+      "Gluon is a dual-token stabilization protocol. Split base tokens into neutrons and protons. Available on EVM and Ergo.",
+    site: "@StabilityNexus",
+    creator: "@StabilityNexus",
+    images: ["/image.png"],
   },
   robots: "index, follow",
   icons: {
