@@ -127,9 +127,6 @@ export default function Navbar() {
             <a href="https://gluon.gold/" target="_blank" rel="noopener noreferrer" className={NAV_LINK_CLASS}>
               Ergo
             </a>
-            <a href="https://solana.gluon.stability.nexus/" target="_blank" rel="noopener noreferrer" className={NAV_LINK_CLASS}>
-              Solana
-            </a>
           </div>
 
           {/* Mobile: hamburger */}
@@ -168,9 +165,6 @@ export default function Navbar() {
                 </a>
                 <a href="https://gluon.gold/" target="_blank" rel="noopener noreferrer" className={`${NAV_LINK_CLASS} py-3 text-base`} onClick={() => setMenuOpen(false)}>
                   Ergo
-                </a>
-                <a href="https://solana.gluon.stability.nexus/" target="_blank" rel="noopener noreferrer" className={`${NAV_LINK_CLASS} py-3 text-base`} onClick={() => setMenuOpen(false)}>
-                  Solana
                 </a>
               </div>
             </motion.div>

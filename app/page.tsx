@@ -98,16 +98,6 @@ export default function Home() {
               >
                 Ergo
               </a>
-              
-              <a 
-                href="https://solana.gluon.stability.nexus/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={HERO_LINK_CLASS}
-                aria-label="Gluon on Solana (opens in new tab)"
-              >
-                Solana
-              </a>
             </div>
           </div>
         </div>
@@ -117,7 +107,7 @@ export default function Home() {
       <div 
         ref={howItWorksSectionRef}
         className="hidden lg:block relative"
-        style={{ height: `${140 * HOW_IT_WORKS_RAIL_ITEMS.length}vh` }}
+        style={{ height: `${55 * HOW_IT_WORKS_RAIL_ITEMS.length}vh` }}
       >
         <section 
           id="how-it-works" 
@@ -178,7 +168,7 @@ export default function Home() {
                   autoPlay={false}
                   scrollBased={true}
                   scrollContainerRef={howItWorksSectionRef}
-                  className="rounded-2xl glass-card-strong"
+                  className="rounded-2xl"
                 />
               </motion.div>
             </div>
