@@ -50,8 +50,8 @@
 <!-- Project core values and objective -->
 <p align="center">
   <strong>
-  Gluon is a dual-token stabilization protocol. <br />
-  Split base tokens into neutrons and protons, or merge them back. Available on EVM and Ergo.
+  Gluon is a fully autonomous and fully backed stablecoin protocol. <br />
+  Split any token into stable and volatile sub-tokens (minting stablecoins), merge these sub-tokens back into the original token (redeeming stablecoins), and transmute one sub-token into the other to adjust how much stability or leveraged volatility you wish to have.
   </strong>
 </p>
 

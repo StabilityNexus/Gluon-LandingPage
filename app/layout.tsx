@@ -19,13 +19,38 @@ export const metadata: Metadata = {
   },
   title: "Gluon Stablecoin Protocol",
   description:
-    "Gluon is a dual-token stabilization protocol. Split base tokens into neutrons and protons. Available on EVM and Ergo.",
-  keywords: ["Gluon", "DeFi", "stablecoin", "dual token", "crypto", "EVM", "Ergo"],
+    "Gluon is a fully autonomous and fully backed stablecoin protocol. Split any token into stable and volatile sub-tokens (minting stablecoins), merge these sub-tokens back into the original token (redeeming stablecoins), and transmute one sub-token into the other to adjust how much stability or leveraged volatility you wish to have.",
+  keywords: [
+    "Gluon",
+    "Djed",
+    "DeFi",
+    "decentralized finance",
+    "stablecoin",
+    "smart contract",
+    "dual token",
+    "crypto",
+    "blockchain",
+    "distributed ledger technology",
+    "digital asset",
+    "programmable money",
+    "stability",
+    "volatility",
+    "payments",
+    "yield",
+    "leverage",
+    "Ergo",
+    "EVM",
+    "Ethereum Classic",
+    "Ethereum",
+    "Polygon",
+    "Binance Smart Chain",
+    "Base",
+  ],
   authors: [{ name: "Gluon Stablecoin Protocol" }],
   openGraph: {
     title: "Gluon Stablecoin Protocol",
     description:
-      "Gluon is a dual-token stabilization protocol. Split base tokens into neutrons and protons. Available on EVM and Ergo.",
+      "Gluon is a fully autonomous and fully backed stablecoin protocol. Split any token into stable and volatile sub-tokens (minting stablecoins), merge these sub-tokens back into the original token (redeeming stablecoins), and transmute one sub-token into the other to adjust how much stability or leveraged volatility you wish to have.",
     url: "https://gluon.stability.nexus",
     siteName: "Gluon Protocol",
     images: [
@@ -43,7 +68,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Gluon Stablecoin Protocol",
     description:
-      "Gluon is a dual-token stabilization protocol. Split base tokens into neutrons and protons. Available on EVM and Ergo.",
+      "Gluon is a fully autonomous and fully backed stablecoin protocol. Split any token into stable and volatile sub-tokens (minting stablecoins), merge these sub-tokens back into the original token (redeeming stablecoins), and transmute one sub-token into the other to adjust how much stability or leveraged volatility you wish to have.",
     site: "@StabilityNexus",
     creator: "@StabilityNexus",
     images: ["/image.png"],
@@ -73,7 +98,8 @@ export default function RootLayout({
         "@id": "https://gluon.stability.nexus/#website",
         "url": "https://gluon.stability.nexus/",
         "name": "Gluon Protocol",
-        "description": "Physics-inspired dual-token stablecoin protocol with zero governance and no rent-seeking fees."
+        "description":
+          "Gluon is a fully autonomous and fully backed stablecoin protocol. Split any token into stable and volatile sub-tokens (minting stablecoins), merge these sub-tokens back into the original token (redeeming stablecoins), and transmute one sub-token into the other to adjust how much stability or leveraged volatility you wish to have.",
       },
       {
         "@type": "SoftwareApplication",

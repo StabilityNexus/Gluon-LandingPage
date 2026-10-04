@@ -15,7 +15,7 @@
     "/api/info.json": {
       "get": {
         "summary": "Get Gluon Protocol information",
-        "description": "Returns metadata, core architectural principles, features, live ecosystem instances (EVM, Ergo, Solana), and repository links for Gluon Protocol.",
+        "description": "Returns metadata, core architectural principles, features, keywords, live ecosystem instances (EVM, Ergo), and repository links for Gluon Protocol.",
         "operationId": "getProtocolInfo",
         "responses": {
           "200": {
@@ -28,6 +28,10 @@
                     "name": { "type": "string" },
                     "version": { "type": "string" },
                     "description": { "type": "string" },
+                    "keywords": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
                     "architecture": { "type": "string" },
                     "features": {
                       "type": "array",

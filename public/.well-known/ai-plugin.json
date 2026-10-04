@@ -2,8 +2,8 @@
   "schema_version": "v1",
   "name_for_model": "gluon_protocol",
   "name_for_human": "Gluon Protocol",
-  "description_for_model": "Plugin for querying Gluon stablecoin protocol specifications, dual token mechanics, reserve principles, and ecosystem instances (EVM, Ergo, Solana).",
-  "description_for_human": "Explore Gluon stablecoin protocol architecture, Fission/Fusion mechanics, and protocol instances.",
+  "description_for_model": "Plugin for querying Gluon stablecoin protocol specifications, dual token mechanics, reserve principles, and ecosystem instances (EVM, Ergo). Gluon is a fully autonomous and fully backed stablecoin protocol.",
+  "description_for_human": "Explore Gluon stablecoin protocol architecture, Fission/Fusion mechanics, and protocol instances on EVM and Ergo.",
   "auth": {
     "type": "none"
   },
