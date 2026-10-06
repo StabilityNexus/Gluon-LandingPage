@@ -1,13 +1,13 @@
-# Gluon W Stablecoin Protocol — Full Technical Reference
+# Gluon Stablecoin Protocol — Full Technical Reference
 
-Official academic specification and mathematical design principles of the Gluon W protocol.
+Official academic specification and mathematical design principles of the Gluon protocol.
 
 ---
 
 ## 1. Overview & Terminology
-**Gluon W** is a physics-inspired, zero-governance, rent-seeking free stablecoin protocol designed by **Joachim Zahnentferner** (also known as **Dr. Bruno Woltzenlogel Paleo**) and researched by **The Stable Order** & **Stability Nexus**. 
+**Gluon** is a fully autonomous and fully backed stablecoin protocol designed by **Joachim Zahnentferner** (also known as **Dr. Bruno Woltzenlogel Paleo**) and researched by **The Stable Order** & **Stability Nexus**. Split any token into stable and volatile sub-tokens (minting stablecoins), merge these sub-tokens back into the original token (redeeming stablecoins), and transmute one sub-token into the other to adjust how much stability or leveraged volatility you wish to have.
 
-Rather than utilizing traditional collateralized debt positions (CDPs) or rigid seigniorage mechanics, Gluon W splits a single base asset (e.g. ERG, ETH, SOL) into stable and volatile sub-assets:
+Rather than utilizing traditional collateralized debt positions (CDPs) or rigid seigniorage mechanics, Gluon splits a single base asset (e.g. ERG, ETH) into stable and volatile sub-assets:
 
 *   **Base Token (denoted by ☯ or Base Asset)**: The volatile reserve asset held by the smart contract reactor.
 *   **Stable Tokeons or Neutrons (denoted by $\circ$)**: Sub-tokens whose value is maintained stable relative to a target price (e.g., 1 GAU pegged to 1 gram of gold or 1 USD).

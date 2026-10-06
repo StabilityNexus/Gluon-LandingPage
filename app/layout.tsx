@@ -13,21 +13,65 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gluon.stability.nexus"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Gluon Stablecoin Protocol",
   description:
-    "Gluon W is a dual-token stabilization protocol. Split base tokens into neutrons (stable) and protons (volatile), or merge them back. DeFi-native mechanics with dynamic fees.",
-  keywords: ["Gluon", "DeFi", "stablecoin", "dual token", "crypto", "EVM", "Ergo", "Solana"],
+    "Gluon is a fully autonomous and fully backed stablecoin protocol. Split any token into stable and volatile sub-tokens (minting stablecoins), merge these sub-tokens back into the original token (redeeming stablecoins), and transmute one sub-token into the other to adjust how much stability or leveraged volatility you wish to have.",
+  keywords: [
+    "Gluon",
+    "Djed",
+    "DeFi",
+    "decentralized finance",
+    "stablecoin",
+    "smart contract",
+    "dual token",
+    "crypto",
+    "blockchain",
+    "distributed ledger technology",
+    "digital asset",
+    "programmable money",
+    "stability",
+    "volatility",
+    "payments",
+    "yield",
+    "leverage",
+    "Ergo",
+    "EVM",
+    "Ethereum Classic",
+    "Ethereum",
+    "Polygon",
+    "Binance Smart Chain",
+    "Base",
+  ],
   authors: [{ name: "Gluon Stablecoin Protocol" }],
   openGraph: {
     title: "Gluon Stablecoin Protocol",
     description:
-      "Gluon W is a dual-token stabilization protocol. Split base tokens into neutrons and protons. Available on EVM, Ergo, and Solana.",
+      "Gluon is a fully autonomous and fully backed stablecoin protocol. Split any token into stable and volatile sub-tokens (minting stablecoins), merge these sub-tokens back into the original token (redeeming stablecoins), and transmute one sub-token into the other to adjust how much stability or leveraged volatility you wish to have.",
+    url: "https://gluon.stability.nexus",
+    siteName: "Gluon Protocol",
+    images: [
+      {
+        url: "/image.png",
+        width: 512,
+        height: 512,
+        alt: "Gluon Logo",
+      },
+    ],
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Gluon Stablecoin Protocol",
-    description: "DeFi-native dual-token mechanics. Fission, fusion, and beta decay reactions.",
+    description:
+      "Gluon is a fully autonomous and fully backed stablecoin protocol. Split any token into stable and volatile sub-tokens (minting stablecoins), merge these sub-tokens back into the original token (redeeming stablecoins), and transmute one sub-token into the other to adjust how much stability or leveraged volatility you wish to have.",
+    site: "@StabilityNexus",
+    creator: "@StabilityNexus",
+    images: ["/image.png"],
   },
   robots: "index, follow",
   icons: {
@@ -54,7 +98,8 @@ export default function RootLayout({
         "@id": "https://gluon.stability.nexus/#website",
         "url": "https://gluon.stability.nexus/",
         "name": "Gluon Protocol",
-        "description": "Physics-inspired dual-token stablecoin protocol with zero governance and no rent-seeking fees."
+        "description":
+          "Gluon is a fully autonomous and fully backed stablecoin protocol. Split any token into stable and volatile sub-tokens (minting stablecoins), merge these sub-tokens back into the original token (redeeming stablecoins), and transmute one sub-token into the other to adjust how much stability or leveraged volatility you wish to have.",
       },
       {
         "@type": "SoftwareApplication",
