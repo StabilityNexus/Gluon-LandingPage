@@ -97,7 +97,7 @@ function ReactionVisualization({
   const isMerge = inputTokens.length === 2 && outputTokens.length === 1;
 
   return (
-    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-surface-elevated via-surface to-surface-elevated pt-8 px-6 pb-6 border-b border-[rgba(252,204,24,0.08)]">
+    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-surface-elevated via-surface to-surface-elevated p-6">
       <div className="flex w-full items-center justify-between gap-4">
         {/* Input Tokens */}
         <div className="flex items-center gap-3">
@@ -293,7 +293,7 @@ export function FocusRail({
     <div
       ref={railRef}
       className={cn(
-        "group relative flex h-[500px] sm:h-[530px] lg:h-[560px] w-full flex-col overflow-hidden text-white outline-none select-none overflow-x-hidden rounded-2xl glass-card-strong",
+        "group relative flex h-[500px] sm:h-[530px] lg:h-[560px] w-full flex-col overflow-hidden text-white outline-none select-none overflow-x-hidden rounded-2xl",
         className
       )}
       onMouseEnter={() => setIsHovering(true)}
@@ -385,14 +385,6 @@ export function FocusRail({
                   </div>
                 )}
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-white/80">
-                    {item.meta ? highlightTokenTerms(item.meta) : ''}
-                  </span>
-                  <p className="mt-1 font-bold text-white drop-shadow-lg">
-                    {highlightTokenTerms(item.title)}
-                  </p>
-                </div>
               </motion.div>
             );
           })}

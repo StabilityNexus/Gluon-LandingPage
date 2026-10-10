@@ -87,3 +87,9 @@ html {
 .animate-flow-glow {
   animation: flow-glow 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
