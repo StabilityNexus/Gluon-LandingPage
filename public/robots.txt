@@ -1,6 +1,7 @@
 # Robots.txt for Gluon Protocol Landing Page
 User-agent: *
 Allow: /
+Disallow: /pr-preview/
 
 # AI Crawler Permissions
 User-agent: GPTBot
