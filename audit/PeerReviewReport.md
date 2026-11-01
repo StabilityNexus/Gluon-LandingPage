@@ -37,7 +37,7 @@ No security vulnerabilities were identified. The following security patterns and
 | Hero & Value Proposition ("Why Gluon") | Verified | Clean typography, responsive SVG icon rendering, and high-contrast call-to-action buttons. |
 | Interactive protocol mechanics walkthrough | Verified | Interactive visualizer correctly demonstrates fission, fusion, and beta transmutation with smooth step transitions. |
 | Mobile-specific walkthrough variant | Verified | `MobileHowItWorks.tsx` adapts desktop diagrams into touch-friendly cards for smaller screens. |
-| Terms of Use Modal & Legal Protection | Verified | Closes via the close button, Cancel, or a backdrop click; Accept requires the agreement checkbox; acceptance is stored in `localStorage` per UTC day. |
+| Terms of Use Modal & Legal Protection | Verified | Closes via the × button in the header, the Close button in the footer, or a backdrop click; Accept requires the agreement checkbox; acceptance is stored in `localStorage` per UTC day. |
 | AI Agent Readiness Kit & Machine Endpoints | Partially verified | `/api/info.json`, `/openapi.json` and `/.well-known/mcp.json` are served as static files. The MCP manifest advertises an SSE transport at `/api/mcp`, which is not implemented in this repository. |
 | Structured Data (JSON-LD) | Verified | Compiles static Schema.org metadata (`@type: "WebSite"`, `@type: "SoftwareApplication"`) into `<head>` cleanly. |
 | Reverse tabnabbing & link safety | Verified | External anchor tags pointing to Stability Nexus or documentation strictly declare `rel="noopener noreferrer"`. |
@@ -62,8 +62,8 @@ The following checks were verified against the repository:
 - `npm run lint` (`eslint .`): Passed with zero warnings or errors.
 - `npm run build` (`next build`): Successfully generated static export into `out/` with routes `/`, `/api/info`, and static 404 handler.
 - Interactive mechanics testing: Exercised step navigation, manual tab selection, and autoplay reset behavior.
-- Modal verification: Checked that the Terms of Use modal closes via the close button, Cancel and a backdrop click, and that Accept stays disabled until the agreement checkbox is ticked.
-- Asset verification: Confirmed SVG logos, OpenGraph preview cards (`/opengraph-image.png`), and favicon resolution.
+- Modal verification: Checked that the Terms of Use modal closes via the × button in the header, the Close button in the footer and a backdrop click, and that Accept stays disabled until the agreement checkbox is ticked.
+- Asset verification: Confirmed SVG logos, the Open Graph and Twitter preview image (`/image.png`), and favicon resolution.
 
 ---
 
