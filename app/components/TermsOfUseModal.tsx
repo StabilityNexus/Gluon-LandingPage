@@ -269,6 +269,14 @@ export default function TermsOfUseModal({ isOpen, onClose, onAccept }: TermsOfUs
   const [loading, setLoading] = useState<boolean>(true);
   const [agreed, setAgreed] = useState<boolean>(false);
 
+  const [prevIsOpen, setPrevIsOpen] = useState<boolean>(isOpen);
+  if (isOpen !== prevIsOpen) {
+    setPrevIsOpen(isOpen);
+    if (isOpen) {
+      setAgreed(false);
+    }
+  }
+
   useEffect(() => {
     if (!isOpen) return;
 
@@ -309,7 +317,6 @@ export default function TermsOfUseModal({ isOpen, onClose, onAccept }: TermsOfUs
   return (
     <div
       className="fixed inset-0 bg-black/85 flex items-center justify-center z-[1000] p-4 backdrop-blur-md animate-fadeIn"
-      onClick={onClose}
     >
       <div
         className="bg-zinc-950/95 border border-white/10 rounded-3xl shadow-2xl backdrop-blur-md max-w-3xl w-full max-h-[90vh] flex flex-col overflow-hidden"
